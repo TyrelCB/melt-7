@@ -1,0 +1,9 @@
+[project]
+name = "melt-7-mcp"
+version = "0.1.0"
+description = "MCP server exposing the MLT/melt-7 rendering engine for agentic video editing"
+requires-python = ">=3.10"
+dependencies = [
+    "fastmcp>=2.0",
+    "pyyaml>=6.0",
+]
