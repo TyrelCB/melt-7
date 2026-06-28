@@ -23,6 +23,21 @@ python mcp_server.py
 Serves MCP over streamable HTTP on `http://0.0.0.0:8001/mcp` (port 8001, to
 avoid colliding with the wan2_2_t2v server on 8000 if both run on the same host).
 
+## Running as a service
+
+A systemd user unit is provided for running the server persistently:
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+cp melt-7-mcp.service ~/.config/systemd/user/
+systemctl --user daemon-reload
+systemctl --user enable --now melt-7-mcp.service
+```
+
+Check status/logs with `systemctl --user status melt-7-mcp.service` and
+`journalctl --user -u melt-7-mcp.service -f`.
+
 ## Project model
 
 Each call to `create_project` creates a project directory under `projects/<id>/`

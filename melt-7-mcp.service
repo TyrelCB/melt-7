@@ -1,0 +1,14 @@
+[Unit]
+Description=melt-7 MCP Server
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/projects/melt-7
+ExecStart=%h/projects/melt-7/.venv/bin/python %h/projects/melt-7/mcp_server.py
+Restart=on-failure
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=default.target
